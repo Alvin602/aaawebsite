@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :members
+  resources :events
+
   match "/index" => "aaa_core#index", via: :get
   match "/shop" => "aaa_core#shop", via: :get
-  match "/events" => "aaa_core#events", via: :get
   match "/discussion" => "aaa_core#discussion", via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.
