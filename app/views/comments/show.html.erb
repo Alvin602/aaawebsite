@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @comment.event_id %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @comment.details %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @comment.author %>
+</p>
+
+<% if member_signed_in? %>
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<% end %>
+<%= link_to 'Back', comments_path(event_id: @comment.event_id) %>
