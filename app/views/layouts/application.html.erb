@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
   <title><%= title %></title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -9,8 +10,23 @@
 <body>
 
 <%= render 'layouts/header' %>
+
+<p class="notice"><%= notice %></P>
+<p class="alert"><%= alert %></P>
+
 <%= render 'layouts/navigation' %>
+
+<section class="sidebar" id="right">
+	<% if member_signed_in? %>
+		Signed in as <%= current_member.email %>:
+		<%= link_to "Sign out", destroy_member_session_path, :method => :delete %>
+	<% else %>
+		<%= link_to "Sign up", new_member_registration_path %> or <%= link_to "Sign in", new_member_session_path %>
+	<% end %>
+</section>
+
 <%= yield %>
+
 <%= render 'layouts/footer' %>
 
 </body>
