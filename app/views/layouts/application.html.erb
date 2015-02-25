@@ -9,25 +9,18 @@
 </head>
 <body>
 
-<%= render 'layouts/header' %>
+<div id="container">
+  <%= render 'layouts/header' %>
 
-<p class="notice"><%= notice %></P>
-<p class="alert"><%= alert %></P>
+  <p class="notice"><%= notice %></P>
+  <p class="alert"><%= alert %></P>
 
-<%= render 'layouts/navigation' %>
+  <%= render 'layouts/navigation' %>
 
-<section class="sidebar" id="right">
-	<% if member_signed_in? %>
-		Signed in as <%= current_member.email %>:
-		<%= link_to "Sign out", destroy_member_session_path, :method => :delete %>
-	<% else %>
-		<%= link_to "Sign up", new_member_registration_path %> or <%= link_to "Sign in", new_member_session_path %>
-	<% end %>
-</section>
+  <%= yield %>
 
-<%= yield %>
-
-<%= render 'layouts/footer' %>
+  <%= render 'layouts/footer' %>
+</div>
 
 </body>
 </html>
