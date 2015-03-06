@@ -11,7 +11,7 @@
         <p>
           <%= link_to 'Show', event %> |
           <%= link_to 'Edit', edit_event_path(event) %>
-          <%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete %>
+          <%= link_to 'Destroy', event, data: {confirm: 'Are you sure?'}, method: :delete %>
         </p>
       <% end %>
     </section>
@@ -19,7 +19,8 @@
 
 <% if member_signed_in? %>
   <section>
-    <%= link_to 'New Event', new_event_path %>
+    <%= link_to 'New Event', new_event_path %><br>
+    <%= link_to 'XML representation of events list', events_path(@events, format: 'xml') %>
   </section>
 <% end %>
 

@@ -1,11 +1,14 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_member!, only: [:new, :create, :edit, :update, :destroy]
+  respond_to :html, :xml, :json
 
   # GET /events
+  # GET /events.xml
   # GET /events.json
   def index
     @events = Event.all
+    respond_with(@events)
   end
 
   # GET /events/1
