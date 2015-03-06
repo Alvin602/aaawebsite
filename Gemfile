@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'activeadmin',  github: 'activeadmin'
 gem 'ransack',  '~> 1.6.3'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'protected_attributes'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
